@@ -20,28 +20,22 @@ a{
 	color: black;
 	&:hover{
 		color: @link-hover;
-		transition: 300ms;
+		transition: .2s;
 	}
 }
 
 .container{
-	.menu{display: inline-block;}
 	text-align: center;
-}
-
-/*
-** Menu
-*/
-
-.menu{
-	background: @grey_menu;
-	border-radius: 10px;
-	width: 90%;
-	text-align: center;
-	vertical-align: middle;
-	a{
+	.menu{
 		display: inline-block;
-		margin: 10px 2% 10px;
+		background: @grey_menu;
+		border-radius: 10px;
+		width: 90%;
+		vertical-align: middle;
+		a{
+			display: inline-block;
+			margin: 10px 2% 10px;
+		}
 	}
 }
 
@@ -63,29 +57,26 @@ input {
 	border: 1px solid #CCC;
 	border-radius: 2px;
 	outline: none;
-}
-
-input:focus {
-	border-color: rgba(82, 168, 236, 0.75);
-	box-shadow: 0 0 8px rgba(82, 168, 236, 0.5);
+	&:focus{
+		border-color: rgba(82, 168, 236, 0.75);
+		box-shadow: 0 0 8px rgba(82, 168, 236, 0.5);
+	}
 }
 
 .correct {
 	border-color: rgba(68, 191, 68, 0.75);
-}
-	
-.correct:focus {
-	border-color: rgba(68, 191, 68, 0.75);
-	box-shadow: 0 0 8px rgba(68, 191, 68, 0.5);
+	&:focus{
+		border-color: rgba(68, 191, 68, 0.75);
+		box-shadow: 0 0 8px rgba(68, 191, 68, 0.5);
+	}
 }
 	
 .incorrect {
 	border-color: rgba(191, 68, 68, 0.75);
-}
-	
-.incorrect:focus {
-	border-color: rgba(191, 68, 68, 0.75);
-	box-shadow: 0 0 8px rgba(191, 68, 68, 0.5);
+	&:focus{
+		border-color: rgba(191, 68, 68, 0.75);
+		box-shadow: 0 0 8px rgba(191, 68, 68, 0.5);
+	}
 }
 
 /*
@@ -95,41 +86,26 @@ input:focus {
 #main {
 	display:flex;
 	width: 100%;
-}
-
-#vidContainer{
-	display: inline-block;
-	position: relative;
-}
-
-#filter{
-	.filter{
+	#takePicMain {
 		display: inline-block;
-		padding: 10px;
-		height: 70px;
-		&.active{
-			background: red;
+		width: 70%;
+		text-align: center;
+		#vidContainer{
+			display: inline-block;
+			position: relative;
 		}
-		img{display: inline-block;}
+		#filter{
+			display: inline-block;
+			width: 30%;
+			text-align: left;
+			.filter{
+				display: inline-block;
+				padding: 10px;
+				height: 70px;
+				img{display: inline-block;}
+			}
+		}
 	}
-}
-
-#takePicMain {
-	display: flex;
-	width: 70%;
-	align-self: left;
-	flex-direction: column;
-	justify-content: center;
-}
-
-#filter{
-	display: flex;
-	width: 30%;
-	align-self: right;
-}
-
-#sourcevid{
-	align-self: center;
 }
 
 #picTaken {
@@ -142,7 +118,5 @@ input:focus {
 
 .newImg {
 	display: flex;
-	margin-left: 25px;
-	margin-top: 25px;
-	margin-bottom: 25px;
+	margin: 25px 25px;
 }

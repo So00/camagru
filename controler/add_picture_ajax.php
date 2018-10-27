@@ -16,7 +16,7 @@ if (!empty($_SESSION['login'])) {
             echo $imgPath;
         } else {
             exec("rm -rf $imgPath");
-            echo "$imgPath";
+            echo "KO";
         }
     } else if (!empty($_FILES['picture']) && strstr($_FILES['picture']['type'], 'image')) {
         $file = $_FILES['picture'];
