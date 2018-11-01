@@ -15,14 +15,19 @@ if ($_SESSION['login']) { ?>
             </form>
         </div>
         <div id="filter">
-            <div class="filter"><img src="../pictures/unicorn.png" width="50" height="70"></div>
+            <?php $allFilter = scandir("../filters");
+            foreach ($allFilter as $actFilter) {
+                if ($actFilter[0] != ".") {?>
+                <div class="filter"><img src="../filters/<?= $actFilter; ?>"></div>
+            <?php }} ?>
         </div>
     </div>
 <script type="text/javascript" src="./js/takingPic.js"></script>
+<script type="text/javascript" src="./js/filter.js"></script>
 
 <div id="picTaken"></div>
 <?php } else { ?>
-    <span class="answer">You need to be looged in to use this feature</span>
+    <div class="answer">You need to be looged in to use this feature</div>
 <?php }
 
 require_once "footer.php";

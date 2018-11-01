@@ -1,6 +1,7 @@
 <?php
 
 
+
 /*
  * Is user or mail in db
 */
@@ -30,7 +31,6 @@ function No_duplicate($user)
 /**
  * Is the user in db
  */
-
 function Select_user($user)
 {
     include "connect.php";

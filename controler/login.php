@@ -13,7 +13,7 @@ function login()
             $message = "Your account does not exist";
         } else {
             if ($data['valid'] === "1") {
-                if (hash("whirlpool", $pwd) == $data['pwd']) {
+                if (hash("whirlpool", $pwd) === $data['pwd']) {
                     $_SESSION['login'] = $login;
                     $_SESSION['id'] = $data['id'];
                     $message = "You're now logged in";

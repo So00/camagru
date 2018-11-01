@@ -52,6 +52,7 @@ function Assign_Rand_value($num) {
 function Create_user($user)
 {
     include "connect.php";
+
     do {
         $validation = "";
         for ($i = 0; $i < 40; $i++) {
