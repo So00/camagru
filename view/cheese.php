@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * The part where you take picture
+ */
+
 require_once "head.php";
 require_once "menu.php";
 

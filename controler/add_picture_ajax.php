@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * Ajax request to add the picture
+ */
+
 session_start();
 
 include "../model/create_image.php";
@@ -9,6 +14,9 @@ $imgPath = "../pictures/".$_SESSION['login']."/".($ret[0] ? $ret[0] + 1 : 1);
 
 if (!empty($_SESSION['login']) && !empty($_POST["filters"])) {
     if (!empty($_POST['picture'])) {
+        /**
+         * add the picture to db
+         */
         $imgPath .= ".png";
         $img = $_POST['picture'];
         $img = str_replace('data:image/png;base64,', '', $img);
@@ -16,27 +24,31 @@ if (!empty($_SESSION['login']) && !empty($_POST["filters"])) {
         $file = base64_decode($img);
         file_put_contents($imgPath, $file);
         /* need to add filter */
-        $filters = json_decode($_POST["filters"], true);
+        $filters = $_POST["filters"];
 
         if (exif_imagetype($imgPath)) {
             $dataUser = Select_user($_SESSION['login']);
             $user = $dataUser->fetch();
-            add_image($user['ID'], $imgPath);
+            add_image($user['ID'], $imgPath, $filters);
             $img_id = get_img_id($imgPath);
-            foreach ($filters as $act_filter)
-            {
-                add_filter($img_id, $act_filter);
-            }
-            echo $imgPath;
+            echo $imgPath."&".$filters;
         } else {
             exec("rm -rf $imgPath");
             echo "KO";
         }
     } else if (!empty($_FILES['picture']) && strstr($_FILES['picture']['type'], 'image')) {
+        /**
+         * Add the file to the db
+         */
         $file = $_FILES['picture'];
         $type = substr($file['type'], strrpos($file['type'], "/") + 1);
-        copy($_FILES['picture']['tmp_name'], $imgPath.".".$type);
-        echo $imgPath.".".$type;
+        $imgPath .= ".".$type;
+        $dataUser = Select_user($_SESSION['login']);
+        $user = $dataUser->fetch();
+        add_image($user['ID'], $imgPath, $filters);
+        $img_id = get_img_id($imgPath);
+        copy($_FILES['picture']['tmp_name'], $imgPath);
+        echo $imgPath."&".$_POST["filters"];
     } else {
         echo "KO";
     }

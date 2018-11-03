@@ -94,6 +94,7 @@ input {
 			display: inline-block;
 			position: relative;
 			overflow: hidden;
+			.upload_img{display: inline-block; width: 100%;}
 			#sourcevid{
 				transform: scaleX(-1);
 			}
@@ -120,7 +121,24 @@ input {
 	background-color: cadetblue;
 }
 
-.newImg {
-	display: flex;
+.imgContainer {
+	display: inline-block; position: relative;
+	width: 30%;
 	margin: 25px 25px;
+	overflow: hidden;
+	img{
+		display: inline-block;
+		width: 100%;
+	}
+}
+
+/*
+** my_picture
+*/
+
+.pictureContainer{
+	display: inline-block; position: relative;
+	width: 30%; overflow: hidden;
+	.mainPic{display: block; width: 100%;}
+	.imgFilter{position: absolute; display: inline-block; z-index: 2;}
 }
