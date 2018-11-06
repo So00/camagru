@@ -1,7 +1,5 @@
 <?php
 
-
-
 /*
  * Is user or mail in db
 */

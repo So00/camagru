@@ -1,6 +1,6 @@
 <?php
 require_once "head.php";
-require_once "../controler/do_logout.php";
+require_once "../controler/log.php";
 
 $answer = logout();
 

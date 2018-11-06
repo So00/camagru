@@ -31,7 +31,7 @@ if (!empty($_SESSION['login']) && !empty($_POST["filters"])) {
             $user = $dataUser->fetch();
             add_image($user['ID'], $imgPath, $filters);
             $img_id = get_img_id($imgPath);
-            echo $imgPath."&".$filters;
+            echo $imgPath."&".$img_id."&".$filters;
         } else {
             exec("rm -rf $imgPath");
             echo "KO";
@@ -48,7 +48,7 @@ if (!empty($_SESSION['login']) && !empty($_POST["filters"])) {
         add_image($user['ID'], $imgPath, $filters);
         $img_id = get_img_id($imgPath);
         copy($_FILES['picture']['tmp_name'], $imgPath);
-        echo $imgPath."&".$_POST["filters"];
+        echo $imgPath."&".$img_id."&".$_POST["filters"];
     } else {
         echo "KO";
     }

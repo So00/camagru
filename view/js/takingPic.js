@@ -26,12 +26,16 @@ function add_answer(xhr) {
              * Add the picture to the done pictures
              */
             var response = xhr.responseText;
-            var path = response.substring(0, response.lastIndexOf("&"));
+            var path = response.substring(0, response.indexOf("&"));
             var filters = JSON.parse(response.substring(response.lastIndexOf("&") + 1));
+            var id = response.substring(response.indexOf("&") + 1, response.lastIndexOf("&"));
+            var newLink = document.createElement('a');
             var newDiv = document.createElement('div');
             var newImg = document.createElement('img');
+            newLink.appendChild(newImg);
+            newLink.href = "my_picture.php?img_id="+id;
             newDiv.className = "imgContainer";
-            newDiv.appendChild(newImg);
+            newDiv.appendChild(newLink);
             newImg.src = path;
             newImg.className = "newImg";
             for (var i = 0; filters[i]; i++) {
@@ -99,9 +103,9 @@ function clone() {
             xhr = new ActiveXObject("Microsoft.XMLHTTP");
         }
 
-        xhr.onreadystatechange = function () { add_answer(xhr); }
+        xhr.onreadystatechange = function () { add_answer(xhr); };
 
-        xhr.open("POST", "http://localhost/controler/add_picture_ajax.php", true);
+        xhr.open("POST", "../controler/add_picture_ajax.php", true);
         if (vivi)
         {
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");

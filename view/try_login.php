@@ -9,7 +9,7 @@ if (!$_SESSION['login']) {
             <div><input type="submit" value="Send"></div>
         </form>
 <?php } else { ?>
-        <span class="answer">You're already logged</span>
+        <div class="answer">You're already logged</div>
 <?php }
     require_once "footer.php";
 ?>

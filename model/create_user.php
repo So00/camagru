@@ -43,7 +43,7 @@ function Assign_Rand_value($num) {
         case "35" : $rand_value = "8"; break;
         case "36" : $rand_value = "9"; break;
     }
-    return $rand_value;
+    return ($rand_value);
 }
 /**
  * Create a new user
