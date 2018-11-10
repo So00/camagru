@@ -51,7 +51,7 @@ function Assign_Rand_value($num) {
 
 function Create_user($user)
 {
-    include "connect.php";
+    include __DIR__."/connect.php";
 
     do {
         $validation = "";

@@ -6,7 +6,7 @@
 
 function No_duplicate($user)
 {
-    include "connect.php";
+    include __DIR__."/connect.php";
     $error = null;
     $answer_mail = $bdd->prepare("SELECT * FROM users WHERE mail = :mail;");
     $answer_mail->bindValue('mail', $user['mail'], PDO::PARAM_STR);
@@ -31,7 +31,7 @@ function No_duplicate($user)
  */
 function Select_user($user)
 {
-    include "connect.php";
+    include __DIR__."/connect.php";
     $data = $bdd->prepare("SELECT * FROM users WHERE login = :login;");
     $data->bindValue('login', $user, PDO::PARAM_STR);
     $data->execute();

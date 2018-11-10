@@ -1,5 +1,5 @@
 <?php
-    include "../model/get_picture.php";
+    require __DIR__."/../model/get_picture.php";
 
     /**
      * Get all picture from a user

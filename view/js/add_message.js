@@ -1,3 +1,10 @@
+function change(message)
+{
+    message = message.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#039;/g, "'");
+    return (message);
+}
+
+
 function send_message(xhr)
 {
     if (xhr.readyState == 4)
@@ -8,19 +15,22 @@ function send_message(xhr)
         {
             var message_container = document.body.querySelector(".message_container");
             var new_message = document.createElement("div");
-            var new_par = document.createElement("p");
+            var new_com = document.createElement("div");
             var new_hour = document.createElement("p");
             var titleId = document.createElement("h2");
             var response = JSON.parse(xhr.responseText);
+            var new_test = document.createTextNode(change(response.message));
             titleId.className = "user_id";
             titleId.innerHTML = response.login;
             new_hour.className = "post_hour";
             new_hour.innerHTML = response.date;
             new_message.className = "message";
-            new_par.innerHTML = response.message;
+            new_com.className = "comment";
+//            new_com.innerHTML = response.message;
+            new_com.appendChild(new_test);
             new_message.appendChild(titleId);
             new_message.appendChild(new_hour);
-            new_message.appendChild(new_par);
+            new_message.appendChild(new_com);
             if (message_container.childNodes.length == 0)
                 message_container.appendChild(new_message);
             else
@@ -44,6 +54,6 @@ function add_message()
     }
 
     xhr.onreadystatechange = function () {send_message(xhr);};
-    xhr.open("POST", "../controler/add_message_ajax.php", true);
+    xhr.open("POST", "../../controler/add_message_ajax.php", true);
     xhr.send(formdata);
 }

@@ -36,16 +36,16 @@ function add_answer(xhr) {
             newLink.href = "my_picture.php?img_id="+id;
             newDiv.className = "imgContainer";
             newDiv.appendChild(newLink);
-            newImg.src = path;
+            newImg.src = "../"+path;
             newImg.className = "newImg";
             for (var i = 0; filters[i]; i++) {
                 var newFilter = document.createElement("img");
                 newFilter.style.position = "absolute";
-                newFilter.src = "../filters/" + filters[i].img;
+                newFilter.src = "../../filters/" + filters[i].img;
                 newFilter.style.width = filters[i].width;
                 newFilter.style.top = filters[i].yPos;
                 newFilter.style.left = filters[i].xPos;
-                newDiv.appendChild(newFilter);
+                newLink.appendChild(newFilter);
             }
             AllTakenPic.appendChild(newDiv);
         }
@@ -105,7 +105,7 @@ function clone() {
 
         xhr.onreadystatechange = function () { add_answer(xhr); };
 
-        xhr.open("POST", "../controler/add_picture_ajax.php", true);
+        xhr.open("POST", "../../controler/add_picture_ajax.php", true);
         if (vivi)
         {
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");

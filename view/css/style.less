@@ -1,0 +1,158 @@
+html
+{
+    height: 100%;
+}
+
+body
+{
+	height: 100%;
+}
+
+@grey_menu: #D3D3D3;
+@link-hover: #335EFF;
+
+/*
+** General
+*/
+
+a{
+	text-decoration: none;
+	color: black;
+	&:hover{
+		color: @link-hover;
+		transition: .2s;
+	}
+}
+
+.container{
+	text-align: center;
+	.menu{
+		display: inline-block;
+		background: @grey_menu;
+		border-radius: 10px;
+		width: 90%;
+		vertical-align: middle;
+		a{
+			display: inline-block;
+			margin: 10px 2% 10px;
+		}
+	}
+}
+
+/*
+** Form register
+*/
+
+.tooltips {
+	display: inline-block;
+	margin-left: 20px;
+	padding: 2px 4px;
+	border: 1px solid #555;
+	background-color: #CCC;
+	border-radius: 4px;
+}
+
+input {
+	padding: 2px;
+	border: 1px solid #CCC;
+	border-radius: 2px;
+	outline: none;
+	&:focus{
+		border-color: rgba(82, 168, 236, 0.75);
+		box-shadow: 0 0 8px rgba(82, 168, 236, 0.5);
+	}
+}
+
+.correct {
+	border-color: rgba(68, 191, 68, 0.75);
+	&:focus{
+		border-color: rgba(68, 191, 68, 0.75);
+		box-shadow: 0 0 8px rgba(68, 191, 68, 0.5);
+	}
+}
+	
+.incorrect {
+	border-color: rgba(191, 68, 68, 0.75);
+	&:focus{
+		border-color: rgba(191, 68, 68, 0.75);
+		box-shadow: 0 0 8px rgba(191, 68, 68, 0.5);
+	}
+}
+
+/*
+** Take Pic
+*/
+
+#main {
+	display:flex;
+	width: 100%;
+	#takePicMain {
+		display: inline-block;
+		width: 70%;
+		text-align: center;
+		#vidContainer{
+			display: inline-block;
+			position: relative;
+			overflow: hidden;
+			.upload_img{display: inline-block; width: 100%;}
+			#sourcevid{
+				transform: scaleX(-1);
+			}
+		}
+	}
+		#filter{
+			display: inline-block;
+			width: 30%;
+			text-align: left;
+			.filter{
+				display: inline-block;
+				padding: 10px;
+				width: 30%;
+				img{display: inline-block; width: 100%;}
+			}
+		}
+}
+
+#picTaken {
+	display: flex;
+	width: 100%;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	background-color: cadetblue;
+}
+
+.imgContainer {
+	display: inline-block; position: relative;
+	width: 30%;
+	margin: 25px 25px;
+	overflow: hidden;
+	img{
+		display: inline-block;
+		&.newImg{display: block; width: 100%;}
+	}
+}
+
+/*
+** my_picture
+*/
+
+.pictureContainer{
+	display: inline-block; position: relative;
+	width: 30%; overflow: hidden;
+	.mainPic{display: block; width: 100%;}
+	.imgFilter{position: absolute; display: inline-block; z-index: 2;}
+}
+
+/*
+** Galerry
+*/
+
+.add_message{
+	text-align: center;
+	.text_area{
+		display: inline-block;
+		font-size: 15px;
+		width: 60%;
+		min-height: 60px;
+	}
+}

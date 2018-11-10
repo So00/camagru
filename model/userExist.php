@@ -1,6 +1,6 @@
 <?php
 
-require_once "../model/connect.php";
+require __DIR__."/connect.php";
 
 if (!empty($_GET['user']) && htmlspecialchars($_GET['user']) === $_GET['user']) {
     $req = $bdd->prepare('SELECT * FROM users WHERE login = :login');
