@@ -1,18 +1,17 @@
 <?php
-require "head.php";
-require "menu.php";
-require "../../controler/get_picture.php";
-require "../element/show_picture.php";
-require "../element/show_message.php";
-require "../../controler/get_comment.php";
+require __DIR__."/head.php";
+require __DIR__."/menu.php";
+require __DIR__."/../../controler/get_picture.php";
+require __DIR__."/../element/show_picture.php";
+require __DIR__."/../element/show_message.php";
+require __DIR__."/../../controler/get_comment.php";
 
 if (!empty($_SESSION['login']))
 { ?>
-    <script type="text/javascript" src="../js/add_message.js"></script>
 <?php
     if (empty($_GET["img_id"]))
     {
-        $allPicture = get_all_picture($_SESSION['login']);
+        $allPicture = get_all_login_picture($_SESSION['login']);
         if ($allPicture)
             show_all_picture($allPicture, "my_picture");
         else
@@ -38,8 +37,12 @@ if (!empty($_SESSION['login']))
         else
             echo "<p>It looks like the id is not valid</p>";
     }
+    ?>
+    <script type="text/javascript" src="../js/delete_picture.js"></script>
+    <script type="text/javascript" src="../js/add_message.js"></script>
+    <?php
 } else {
         echo"<p> You need to be logged in to access this page</p>";
 }
-require_once "footer.php";
+require __DIR__."/footer.php";
 ?>

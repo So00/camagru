@@ -1,7 +1,6 @@
 <?php
 
 require __DIR__."/../model/test_user.php";
-require __DIR__."/../model/create_user.php";
 
 /**
  * Check password strengh and length

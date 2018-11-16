@@ -4,8 +4,8 @@
  * The part where you take picture
  */
 
-require_once "head.php";
-require_once "menu.php";
+require "head.php";
+require "menu.php";
 
 if ($_SESSION['login']) { ?>
     <div id="main">
@@ -35,5 +35,5 @@ if ($_SESSION['login']) { ?>
     <div class="answer">You need to be looged in to use this feature</div>
 <?php }
 
-require_once "footer.php";
+require "footer.php";
 ?>

@@ -1,11 +1,9 @@
 html
 {
-    height: 100%;
 }
 
 body
 {
-	height: 100%;
 }
 
 @grey_menu: #D3D3D3;
@@ -139,6 +137,13 @@ input {
 .pictureContainer{
 	display: inline-block; position: relative;
 	width: 30%; overflow: hidden;
+	a.delete-link{
+		span.delete{
+			display: inline-block; position: absolute;
+			left: 90%; top: 0; bottom: 90%; right: 0; z-index: 3;
+			img{display: inline-block; width: 100%;}
+		}
+	}
 	.mainPic{display: block; width: 100%;}
 	.imgFilter{position: absolute; display: inline-block; z-index: 2;}
 }

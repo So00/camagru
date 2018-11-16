@@ -2,7 +2,7 @@ function init() {
     navigator.mediaDevices.getUserMedia({ audio: false, video: { width: 800, height: 600 } }).then(function (mediaStream) {
 
         var video = document.getElementById('sourcevid');
-        video.height = document.body.clientHeight / 1.5;
+        video.height = window.innerHeight / 1.5;
         video.width = video.height * 1.34;
         video.srcObject = mediaStream;
         var vidContainer = document.body.querySelector("#vidContainer");

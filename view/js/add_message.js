@@ -1,4 +1,4 @@
-function change(message)
+function uft8_decode(message)
 {
     message = message.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#039;/g, "'");
     return (message);
@@ -19,14 +19,13 @@ function send_message(xhr)
             var new_hour = document.createElement("p");
             var titleId = document.createElement("h2");
             var response = JSON.parse(xhr.responseText);
-            var new_test = document.createTextNode(change(response.message));
+            var new_test = document.createTextNode(uft8_decode(response.message));
             titleId.className = "user_id";
             titleId.innerHTML = response.login;
             new_hour.className = "post_hour";
             new_hour.innerHTML = response.date;
             new_message.className = "message";
             new_com.className = "comment";
-//            new_com.innerHTML = response.message;
             new_com.appendChild(new_test);
             new_message.appendChild(titleId);
             new_message.appendChild(new_hour);

@@ -2,7 +2,7 @@
 
 function get_all_com($img_id)
 {
-    include "connect.php";
+    include __DIR__."/connect.php";
     $request = $bdd->prepare("SELECT * FROM `message` WHERE picture_id=:img_id ORDER BY date DESC");
     $request->bindValue("img_id", $img_id, PDO::PARAM_INT);
     $request->execute();

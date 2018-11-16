@@ -1,6 +1,6 @@
 <?php
-    require_once "head.php";
-    require_once "menu.php";
+    require __DIR__."/head.php";
+    require __DIR__."/menu.php";
 ?>
 <form id="form" action="register_answer.php" method="post">
 <fieldset>
@@ -70,5 +70,5 @@
 </form>
         <script type="text/javascript" src="../js/creation.js"></script>
 <?php
-require_once "footer.php";
+require __DIR__."/footer.php";
 ?>

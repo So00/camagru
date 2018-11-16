@@ -1,10 +1,9 @@
 <?php
 
 
+require __DIR__."/head.php";
+require __DIR__."/../../controler/try_create_user.php";
+require __DIR__."/menu.php";
 
-require_once "head.php";
-require_once "../../controler/try_create_user.php";
-require_once "menu.php";
-
-require_once "head.php";
+require __DIR__."/head.php";
 ?>

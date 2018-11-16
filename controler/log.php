@@ -1,6 +1,6 @@
 <?php
 
-include __DIR__."/../model/test_user.php";
+require __DIR__."/../model/test_user.php";
 
 /**
  *  Logout or display error message 

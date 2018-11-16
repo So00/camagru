@@ -1,6 +1,6 @@
 <?php
 
-require_once "../model/connect.php";
+require __DIR__."/all_model.php";
 
 if (!empty($_GET['mail']) && htmlspecialchars($_GET['mail']) === $_GET['mail']) {
     $req = $bdd->prepare('SELECT * FROM users WHERE mail = :mail');

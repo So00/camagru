@@ -1,13 +1,13 @@
 <?php
-require_once "head.php";
-require_once "../../controler/log.php";
+require __DIR__."/head.php";
+require __DIR__."/../../controler/log.php";
 
 $answer = logout();
 
 
-require_once "menu.php";
+require __DIR__."/menu.php";
 
 echo $answer;
 
-require_once "footer.php";
+require __DIR__."/footer.php";
 ?>

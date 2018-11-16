@@ -6,8 +6,8 @@
 
 session_start();
 
-include __DIR__."/../model/create_image.php";
-include __DIR__."/../model/test_user.php";
+require __DIR__."/../model/create_image.php";
+require __DIR__."/../model/test_user.php";
 
 exec("ls ../pictures/".$_SESSION['login']." | cut -d . -f 1 | sort -n | tail -n 1", $ret);
 $imgPath = "../pictures/".$_SESSION['login']."/".($ret[0] ? $ret[0] + 1 : 1);

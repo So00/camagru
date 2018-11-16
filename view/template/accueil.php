@@ -1,5 +1,5 @@
 <?php
-require_once "head.php";
-require_once "menu.php";
-require_once "footer.php";
+require "head.php";
+require "menu.php";
+require "footer.php";
 ?>

@@ -1,6 +1,6 @@
 <?php
-    require_once "head.php";
-    require_once "menu.php";
+    require __DIR__."/head.php";
+    require __DIR__."/menu.php";
 if (!$_SESSION['login']) {
     ?>
         <form action="answer_login.php" method="post">
@@ -11,5 +11,5 @@ if (!$_SESSION['login']) {
 <?php } else { ?>
         <div class="answer">You're already logged</div>
 <?php }
-    require_once "footer.php";
+    require "footer.php";
 ?>

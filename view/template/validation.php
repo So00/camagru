@@ -1,7 +1,7 @@
 <?php
-require "head.php";
-require "menu.php";
-require "../../model/connect.php";
+require __DIR__."/head.php";
+require __DIR__."/menu.php";
+require __DIR__."/../../model/connect.php";
 
 if (isset($_GET['val'])) {
     $val = htmlspecialchars($_GET['val']);
@@ -22,5 +22,5 @@ if (isset($_GET['val'])) {
 } else {
     echo "<p>Your validation link isn't valid</p>";
 }
-require_once "footer.php";
+require __DIR__."/footer.php";
 ?>
