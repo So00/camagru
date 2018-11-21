@@ -2,7 +2,18 @@
 
 require __DIR__ . "/../../controler/common_function.php";
 
-function show_picture($img, $path)
+function is_post($img, $class)
+{
+    if ($img["posted"] === NULL)
+        return ("");
+    if ($class === "background")
+        return ("background--on");
+    if ($class === "toggle-body")
+        return ("toggle-body--on");
+    return ("toggle-btn--on toggle-btn--scale");
+}
+
+function show_picture($img, $path, $post)
 {
     if ($path === "my_picture" || $img["posted"] !== null || ($path === null && get_id_user($_SESSION["login"]) === $img["user_id"])) {
         ?>
@@ -25,16 +36,36 @@ function show_picture($img, $path)
         }
         if ($path === "my_picture")
             echo "<a href=\"#\" class=\"delete-link\" id=\"act_del\"><span class=\"delete\"><img id=\"".$img["ID"]."\" src=\"../../website-picture/cross.png\"\></span></a>";
+        else if ($path === null && $post)
+        {
+            ?>
+            <div class="background <?= is_post($img, "background"); ?>">
+                <div class="toggle-body <?= is_post($img, "toggle-body"); ?>">
+                    <div class="toggle-btn <?= is_post($img, "toggle-btn"); ?>"></div>
+                </div>
+            </div>
+        <?php
+        }
+        if ($path === null)
+        {
+            $decode_like = json_decode($img["likes"], true);
+            $count = array_count_values($decode_like);
+            echo "<div class=\"like\"><p>".
+            ((empty($count["1"])) ? 0 : $count["1"])
+            ."</p><a class=\"likes ".
+            (empty($decode_like[$_SESSION["ID"]]) || $decode_like[$_SESSION["ID"]] == 0 ? "" : "iLike")
+            ."\" href=\"#\"><img src=\"../../website-picture/heart.png\"></a></div>";
+        }
         ?>
     </div>
     <?php
     }
 }
 
-function show_all_picture($allPicture, $path)
+function show_all_picture($allPicture, $path, $post)
 {
     foreach ($allPicture as $actPicture)
-        show_picture($actPicture, $path);
+        show_picture($actPicture, $path, $post);
 }
 
 ?>

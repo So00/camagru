@@ -34,7 +34,7 @@ function login()
             if ($data['valid'] === "1") {
                 if (hash("whirlpool", $pwd) === $data['pwd']) {
                     $_SESSION['login'] = $login;
-                    $_SESSION['id'] = $data['id'];
+                    $_SESSION['ID'] = $data['ID'];
                     $message = "You're now logged in";
                 } else {
                     $message = "Your password was wrong";

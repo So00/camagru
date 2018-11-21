@@ -25,7 +25,6 @@ if (!empty($_SESSION['login']) && !empty($_POST["filters"])) {
         file_put_contents($imgPath, $file);
         /* need to add filter */
         $filters = $_POST["filters"];
-
         if (exif_imagetype($imgPath)) {
             $dataUser = Select_user($_SESSION['login']);
             $user = $dataUser->fetch();
@@ -45,9 +44,9 @@ if (!empty($_SESSION['login']) && !empty($_POST["filters"])) {
         $imgPath .= ".".$type;
         $dataUser = Select_user($_SESSION['login']);
         $user = $dataUser->fetch();
-        add_image($user['ID'], $imgPath, $filters);
-        $img_id = get_img_id($imgPath);
         copy($_FILES['picture']['tmp_name'], $imgPath);
+        add_image($user['ID'], $imgPath, $_POST["filters"]);
+        $img_id = get_img_id($imgPath);
         echo $imgPath."&".$img_id."&".$_POST["filters"];
     } else {
         echo "KO";

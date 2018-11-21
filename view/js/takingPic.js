@@ -106,7 +106,7 @@ function clone() {
         xhr.onreadystatechange = function () { add_answer(xhr); };
 
         xhr.open("POST", "../../controler/add_picture_ajax.php", true);
-        if (vivi)
+        if (vivi != null)
         {
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhr.send("picture=" + base64 + "&filters=" + JSON.stringify(filters));

@@ -23,7 +23,7 @@ if (!empty($_GET["img_id"])) {
         if ($pic["posted"] === null)
             echo "<p>This picture is not visible for now</p>";
         else {
-            show_picture($pic, null);
+            show_picture($pic, null, 0);
             if (!empty($_SESSION["login"])) { ?>
             <div class="add_message">
                 <textarea name="message" class="text_area" placeholder="You like it? Leave a message :)"></textarea><br>
@@ -42,14 +42,16 @@ if (!empty($_GET["img_id"])) {
      * Get all picture from a login
      */
     $allPicture = get_all_login_picture($_GET["login"]);
-    show_all_picture($allPicture, "gallery");
+    show_all_picture($allPicture, "gallery", 0);
 } else {
     /**
      * Get all picture
      */
     $all_picture = get_all_pic();
-    show_all_picture($all_picture, "gallery");
+    show_all_picture($all_picture, "gallery", 0);
 }
-
+?>
+<script type="text/javascript" src="../js/like.js"></script>
+<?php
 require "footer.php";
 ?>

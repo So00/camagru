@@ -11,6 +11,6 @@
         $request->execute();
         $delete_img = $bdd->prepare("DELETE FROM `message` WHERE picture_id=:id");
         $delete_img->bindValue("id", $img_id, PDO::PARAM_INT);
-        $delete->execute();
+        $delete_img->execute();
     }
 ?>

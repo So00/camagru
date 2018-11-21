@@ -6,8 +6,22 @@ body
 {
 }
 
+.inline-block (){
+	text-align: center;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+/*
+** Var
+*/
 @grey_menu: #D3D3D3;
 @link-hover: #335EFF;
+@pink: #FF8FDE;
+@blue: #618BFF;
+@animtime: 1.5s;
+@easing: cubic-bezier(0.68, -0.15, 0.265, 1.35);
+@iteration: 1;
 
 /*
 ** General
@@ -25,11 +39,10 @@ a{
 .container{
 	text-align: center;
 	.menu{
-		display: inline-block;
+		.inline-block();
 		background: @grey_menu;
 		border-radius: 10px;
 		width: 90%;
-		vertical-align: middle;
 		a{
 			display: inline-block;
 			margin: 10px 2% 10px;
@@ -42,7 +55,7 @@ a{
 */
 
 .tooltips {
-	display: inline-block;
+	.inline-block();
 	margin-left: 20px;
 	padding: 2px 4px;
 	border: 1px solid #555;
@@ -98,17 +111,17 @@ input {
 			}
 		}
 	}
-		#filter{
+	#filter{
+		display: inline-block;
+		width: 30%;
+		text-align: left;
+		.filter{
 			display: inline-block;
+			padding: 10px;
 			width: 30%;
-			text-align: left;
-			.filter{
-				display: inline-block;
-				padding: 10px;
-				width: 30%;
-				img{display: inline-block; width: 100%;}
-			}
+			img{display: inline-block; width: 100%;}
 		}
+	}
 }
 
 #picTaken {
@@ -146,7 +159,80 @@ input {
 	}
 	.mainPic{display: block; width: 100%;}
 	.imgFilter{position: absolute; display: inline-block; z-index: 2;}
+	.like{
+		p{display: inline-block; vertical-align: middle;}
+		img{display: inline-block; width: 8%; vertical-align: middle;}
+	}
 }
+
+//Button to post
+
+.background {
+	width: 100%;
+	height: 100px;
+	position: relative;
+	background: @blue;
+	transition: 1.5s @easing;
+  }
+  .background--on {
+	background: @pink;
+	transition: 1.5s @easing;
+  }
+  .toggle-body {
+	width: 7rem;
+	height: 4rem;
+	position: absolute;
+	top: calc(50% - 4rem / 2);
+	left: calc(50% - 7rem / 2);
+	background: white;
+	border-radius: 2rem;
+	animation: angle-reverse @animtime @easing;
+  }
+  .toggle-body--on {
+	animation: angle @animtime @easing;
+	animation-direction: alternate;
+  }
+  .toggle-btn {
+	width: 2rem;
+	height: 2rem;
+	position: absolute;
+	top: calc(50% - 2rem / 2);
+	left: calc(27% - 2rem / 2);
+	background: white;
+	border-radius: 2rem;
+	background: @blue;
+	cursor: pointer;
+	transform:  translateX(0);
+	transition: @animtime @easing;
+  }
+  .toggle-btn--on {
+	transition: @animtime @easing;
+	transform:  translateX(150%);
+	background: @pink;
+  }
+  
+  @keyframes angle {
+	0% {
+	  transform: rotate(0deg);
+	}
+	50% {
+	  transform: rotate(45deg);
+	}
+	100% {
+	  transform: rotate(0deg);
+	}
+  }
+  @keyframes angle-reverse {
+	0% {
+	  transform: rotate(0deg);
+	}
+	50% {
+	  transform: rotate(-45deg);
+	}
+	100% {
+	  transform: rotate(0deg);
+	}
+  }
 
 /*
 ** Galerry
