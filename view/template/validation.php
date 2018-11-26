@@ -1,7 +1,9 @@
 <?php
-require __DIR__."/head.php";
-require __DIR__."/menu.php";
-require __DIR__."/../../model/connect.php";
+require_once __DIR__."/head.php";
+require_once __DIR__."/menu.php";
+require_once __DIR__."/../../model/connect.php";
+
+$bdd = data();
 
 if (isset($_GET['val'])) {
     $val = htmlspecialchars($_GET['val']);

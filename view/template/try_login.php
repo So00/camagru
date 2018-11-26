@@ -1,7 +1,7 @@
 <?php
     require __DIR__."/head.php";
     require __DIR__."/menu.php";
-if (!$_SESSION['login']) {
+if (empty($_SESSION['login'])) {
     ?>
         <form action="answer_login.php" method="post">
             <div><span>Your login : </span><input type="text" name="login"/></div>

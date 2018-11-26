@@ -1,7 +1,7 @@
 <?php
     session_start();
-    require __DIR__."/../model/change_post.php";
-    require_once __DIR__."/../model/get_picture.php";
+    require_once __DIR__."/../model/change_post.php";
+    require_once __DIR__."/../model/picture_function.php";
 
     if (!empty($_POST["img_id"]) && htmlspecialchars($_POST["img_id"]) === $_POST["img_id"])
     {

@@ -6,12 +6,11 @@
     
     session_start();
     
-    require __DIR__."/../model/delete_image.php";
-    require __DIR__."/../model/create_image.php";
-    require __DIR__."/common_function.php";
+    require_once __DIR__."/../model/picture_function.php";
+    require_once __DIR__."/common_function.php";
 
     if (!empty($_SESSION['login'])) {
-        if (!empty($_POST['picture']) && get_picture_user_id(intval($_POST["picture"])) === get_id_user($_SESSION["login"], $bdd)) {
+        if (!empty($_POST['picture']) && get_picture_user_id(intval($_POST["picture"])) === get_id_user($_SESSION["login"])) {
             /**
              * delete the picture from db
              */

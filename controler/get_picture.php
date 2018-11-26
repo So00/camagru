@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . "/../model/get_picture.php";
+require __DIR__ . "/../model/picture_function.php";
 
 /**
  * Get all picture

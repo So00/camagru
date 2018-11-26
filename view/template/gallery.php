@@ -1,10 +1,11 @@
 <?php
-require __DIR__."/head.php";
-require __DIR__."/menu.php";
-require __DIR__."/../../controler/get_picture.php";
-require __DIR__."/../element/show_picture.php";
-require __DIR__."/../element/show_message.php";
-require __DIR__."/../../controler/get_comment.php";
+
+require_once __DIR__."/head.php";
+require_once __DIR__."/menu.php";
+require_once __DIR__."/../../controler/get_picture.php";
+require_once __DIR__."/../element/show_picture.php";
+require_once __DIR__."/../element/show_message.php";
+require_once __DIR__."/../../controler/get_comment.php";
 
 if (!empty($_SESSION["login"])) { ?>
 <script type="text/javascript" src="../js/add_message.js"></script>
@@ -33,7 +34,8 @@ if (!empty($_GET["img_id"])) {
                 <div class="message_container">
             <?php
             $all_com = get_comment($_GET["img_id"]);
-            show_all_message($all_com);
+            if ($all_com)
+                show_all_message($all_com);
             echo "</div>";
         }
 }
@@ -48,7 +50,8 @@ if (!empty($_GET["img_id"])) {
      * Get all picture
      */
     $all_picture = get_all_pic();
-    show_all_picture($all_picture, "gallery", 0);
+    if (!empty($all_picture))
+        show_all_picture($all_picture, "gallery", 0);
 }
 ?>
 <script type="text/javascript" src="../js/like.js"></script>

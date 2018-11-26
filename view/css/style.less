@@ -12,10 +12,23 @@ body
 	vertical-align: middle;
 }
 
+.hover(){
+	text-decoration: none;
+	color: @dark_grey;
+	&:hover{
+		color: @link-hover;
+		transition: .2s;
+		background: white;
+		color: @main_orange;
+	}
+}
+
 /*
 ** Var
 */
-@grey_menu: #D3D3D3;
+@main_orange: #FFA500;
+@orange1 : #daff00;
+@dark_grey: #2B2B2B;
 @link-hover: #335EFF;
 @pink: #FF8FDE;
 @blue: #618BFF;
@@ -27,25 +40,18 @@ body
 ** General
 */
 
-a{
-	text-decoration: none;
-	color: black;
-	&:hover{
-		color: @link-hover;
-		transition: .2s;
-	}
-}
-
 .container{
 	text-align: center;
 	.menu{
 		.inline-block();
-		background: @grey_menu;
+		width: 90%; margin: 0 0 2%;
+		background: @main_orange;
 		border-radius: 10px;
-		width: 90%;
 		a{
-			display: inline-block;
-			margin: 10px 2% 10px;
+			.hover();
+			.inline-block();
+			width: 12%; padding: 10px; margin: 1px 0;
+			&.active{background: white; color: @main_orange;}
 		}
 	}
 }
@@ -54,8 +60,12 @@ a{
 ** Form register
 */
 
-.tooltips {
-	.inline-block();
+form{
+	> div > div {position: relative;}
+}
+
+.help-block {
+	position: absolute;
 	margin-left: 20px;
 	padding: 2px 4px;
 	border: 1px solid #555;
@@ -159,17 +169,27 @@ input {
 	}
 	.mainPic{display: block; width: 100%;}
 	.imgFilter{position: absolute; display: inline-block; z-index: 2;}
-	.like{
-		p{display: inline-block; vertical-align: middle;}
-		img{display: inline-block; width: 8%; vertical-align: middle;}
-	}
+}
+.background{
+	.pictureContainer{width: 80%;}
+	.like{text-align: right; margin-right: 15%;}
+}
+.like{
+	text-align: center;
+	p{display: inline-block; vertical-align: middle;}
+	img{display: inline-block; width: 8%; vertical-align: middle;}
 }
 
 //Button to post
 
+@widthCont = 4rem;
+@heightCont = 2rem;
+@widthBall = 1.5rem;
+@heigthBall = 1.5rem;
+
 .background {
-	width: 100%;
-	height: 100px;
+	width: 40%; display: inline-block;
+	padding: 50px 0;
 	position: relative;
 	background: @blue;
 	transition: 1.5s @easing;
@@ -182,7 +202,7 @@ input {
 	width: 7rem;
 	height: 4rem;
 	position: absolute;
-	top: calc(50% - 4rem / 2);
+	top: calc(89% - 4rem / 2);
 	left: calc(50% - 7rem / 2);
 	background: white;
 	border-radius: 2rem;
@@ -235,7 +255,7 @@ input {
   }
 
 /*
-** Galerry
+** Gallery
 */
 
 .add_message{

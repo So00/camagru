@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__."/../model/test_user.php";
+require __DIR__."/../model/user_function.php";
 
 /**
  *  Logout or display error message 

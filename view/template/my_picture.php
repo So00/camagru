@@ -31,7 +31,8 @@ if (!empty($_SESSION['login']))
             <div class="message_container">
             <?php
             $all_com = get_comment($_GET["img_id"]);
-            show_all_message($all_com);
+            if ($all_com)
+                show_all_message($all_com);
             echo "</div>";
         }
         else

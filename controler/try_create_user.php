@@ -1,6 +1,7 @@
 <?php
 
-require __DIR__."/../model/test_user.php";
+require_once __DIR__."/../model/user_function.php";
+require_once __DIR__."/common_function.php";
 
 /**
  * Check password strengh and length
@@ -22,22 +23,11 @@ function Valid_pass($pwd)
         return (1);
     }
     if (!$min || !$maj || !$numb) {
-        echo "<p>The password is not strong enough.<br>It needs at least a lower caracter, a upper caracter and a number</p>";
+        echo "<div class=\"error\">The password is not strong enough.<br>It needs at least a lower caracter, a upper caracter and a number</div>";
     } else {
-        echo "<p>The password length must be at least 8 and at more 254 characters</p>";
+        echo "<div class=\"error\">The password length must be at least 8 and at more 254 characters</div>";
     }
     return (0);
-}
-
-/**
- * Check if the mail is valid
- */
-function Valid_mail($mail)
-{
-    if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-        return (0);
-    }
-    return (1);
 }
 
 /**
@@ -61,16 +51,16 @@ function Try_post()
         } else if ($fname != $_POST['fname'] || !ctype_alpha($fname)) {
             $error = "first name";
         } else if ($pwd != $pwd2) {
-            echo "<p>You didn't type the same password</p>";
+            echo "<div class=\"error\">You didn't type the same password</div>";
             return (null);
         } else if (!Valid_pass($_POST['pwd'])) {
             return (null);
         } else {
             return (array('login' => $login, 'pwd' => $pwd, 'mail' => $mail, 'name' => $name, 'fname' => $fname));
         } ?>
-        <span class="answer">Error in the field <?= $error ?></span>
+        <div class="error">Error in the field <?= $error ?></div>
     <?php } else { ?>
-        <span class="answer">You need to full all the fields</span>
+        <div class="error">You need to full all the fields</div>
     <?php }
     return (null);
 }
@@ -80,5 +70,5 @@ $user = Try_post();
 if ($user && No_duplicate($user)) {
     Create_user($user);
     ?>
-    <span class="answer">Congratulation <?php echo $user['login']; ?> Your account has been created. Check your mail for the validation<br></span>
+    <div class="answer">Congratulation <?php echo $user['login']; ?> Your account has been created. Check your mail for the validation<br></div>
 <?php } ?>
