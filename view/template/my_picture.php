@@ -42,6 +42,7 @@ if (!empty($_SESSION['login']))
     <script type="text/javascript" src="../js/delete_picture.js"></script>
     <script type="text/javascript" src="../js/add_message.js"></script>
     <script type="text/javascript" src="../js/like.js"></script>
+    <script type="text/javascript" src="../js/change_post.js"></script>
     <?php
 } else {
         echo"<div> You need to be logged in to access this page</div>";

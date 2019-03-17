@@ -54,9 +54,20 @@ function show_picture($img, $path, $post)
             $count = array_count_values($decode_like);
         }
         echo "<div class=\"like\"><p>" . ((empty($count["1"])) ? 0 : $count["1"])
-            . "</p><a class=\"likes " . (empty($decode_like[$_SESSION["ID"]]) || $decode_like[$_SESSION["ID"]] == 0 ? "" : "iLike")
-            . "\" href=\"#\"><img src=\"../../website-picture/heart.png\"></a></div>";
-    }
+            . "</p><a class=\"likes " . (empty($_SESSION) || empty($decode_like[$_SESSION["ID"]]) || $decode_like[$_SESSION["ID"]] == 0 ? "" : "iLike")
+            . "\" href=\"#\"><img class=\"off\" src=\"../../website-picture/heart.png\"><img class=\"on\" src=\"../../website-picture/heart2.png\"></a></div>";
+
+?>    
+        <!-- AddToAny BEGIN -->
+<div>
+<a href="https://www.addtoany.com/share#url=http%3A%2F%2Flocalhost%2Fview%2Ftemplate%2Faccueil.php&amp;title=" target="_blank"><img src="https://static.addtoany.com/buttons/a2a.svg" width="32" height="32" style="background-color:royalblue"></a>
+<a href="https://www.addtoany.com/add_to/facebook?linkurl=http%3A%2F%2Flocalhost%2Fview%2Ftemplate%2Faccueil.php&amp;linkname=" target="_blank"><img src="https://static.addtoany.com/buttons/facebook.svg" width="32" height="32" style="background-color:royalblue"></a>
+<a href="https://www.addtoany.com/add_to/twitter?linkurl=http%3A%2F%2Flocalhost%2Fview%2Ftemplate%2Faccueil.php&amp;linkname=" target="_blank"><img src="https://static.addtoany.com/buttons/twitter.svg" width="32" height="32" style="background-color:royalblue"></a>
+<a href="https://www.addtoany.com/add_to/pinterest?linkurl=http%3A%2F%2Flocalhost%2Fview%2Ftemplate%2Faccueil.php&amp;linkname=" target="_blank"><img src="https://static.addtoany.com/buttons/pinterest.svg" width="32" height="32" style="background-color:royalblue"></a>
+<a href="https://www.addtoany.com/add_to/facebook_messenger?linkurl=http%3A%2F%2Flocalhost%2Fview%2Ftemplate%2Faccueil.php&amp;linkname=" target="_blank"><img src="https://static.addtoany.com/buttons/facebook_messenger.svg" width="32" height="32" style="background-color:royalblue"></a>
+</div>
+<!-- AddToAny END -->
+    <?php }
     if ($path === null && $post) {
         ?>
                 <div class="toggle-body <?= is_post($img, "toggle-body"); ?>">

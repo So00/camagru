@@ -1,6 +1,7 @@
 function uft8_decode(message)
 {
-    message = message.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#039;/g, "'");
+//    message = message.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#039;/g, "'");
+    message = message.replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, "&#039;").replace(/&lt;br \/&gt;/g, "<br/>");
     return (message);
 }
 
@@ -15,25 +16,27 @@ function send_message(xhr)
         {
             var message_container = document.body.querySelector(".message_container");
             var new_message = document.createElement("div");
+            var new_info = document.createElement("div");
             var new_com = document.createElement("div");
             var new_hour = document.createElement("p");
             var titleId = document.createElement("h2");
             var response = JSON.parse(xhr.responseText);
-            var new_test = document.createTextNode(uft8_decode(response.message));
+            new_com.innerHTML = uft8_decode(response.message);
             titleId.className = "user_id";
             titleId.innerHTML = response.login;
             new_hour.className = "post_hour";
             new_hour.innerHTML = response.date;
             new_message.className = "message";
             new_com.className = "comment";
-            new_com.appendChild(new_test);
-            new_message.appendChild(titleId);
-            new_message.appendChild(new_hour);
+            new_info.className = "info";
+            new_info.appendChild(titleId);
+            new_info.appendChild(new_hour);
+            new_message.appendChild(new_info);
             new_message.appendChild(new_com);
             if (message_container.childNodes.length == 0)
                 message_container.appendChild(new_message);
             else
-                message_container.insertBefore(new_message , message_container.firstChild);
+                message_container.insertBefore(new_message, message_container.firstChild);
         }
     }
 }

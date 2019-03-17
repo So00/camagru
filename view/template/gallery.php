@@ -9,8 +9,7 @@ require_once __DIR__."/../../controler/get_comment.php";
 
 if (!empty($_SESSION["login"])) { ?>
 <script type="text/javascript" src="../js/add_message.js"></script>
-    <?php
-
+<?php
 }
 
 if (!empty($_GET["img_id"])) {
@@ -54,7 +53,10 @@ if (!empty($_GET["img_id"])) {
         show_all_picture($all_picture, "gallery", 0);
 }
 ?>
-<script type="text/javascript" src="../js/like.js"></script>
 <?php
+if (!empty($_SESSION))
+{
+    echo '<script type="text/javascript" src="../js/like.js"></script>';
+}
 require "footer.php";
 ?>

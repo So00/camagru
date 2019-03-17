@@ -39,7 +39,7 @@ function is_str_alphanum(_try) {
 function desactivate() {
     var help = document.getElementsByClassName('help-block')
     for (var i = 0; help[i]; i++)
-        help[i].style.display = 'none';
+        help[i].style.opacity = '0';
 }
 
 function checkPwdStrengh(value) {
@@ -94,18 +94,18 @@ check['login'] = function(e){
     var span = document.getElementById(e.target.id).nextElementSibling
     if (is_str_alphanum(value)){
         span.innerHTML = "Only a-z, A-Z and 0-9 are allowed"
-        span.style.display = "inline"
+        span.style.opacity = "1"
         e.target.className = "incorrect"
     } else if (value.length < 3 || value.length > 30){
         span.innerHTML = "Login lenght must be beetween 3 and 30"
-        span.style.display = "inline"
+        span.style.opacity = "1"
         e.target.className = "incorrect"
     } else if (userExist(value)){
         span.innerHTML = "User already exist"
-        span.style.display = "inline"
+        span.style.opacity = "1"
         e.target.className = "incorrect"
     } else {
-        span.style.display = "none"
+        span.style.opacity = "0"
         e.target.className = "correct"
     }
 }
@@ -115,18 +115,18 @@ check['pwd'] = function(e){
     var span = document.getElementById(e.target.id).nextElementSibling
     if (is_str_alphanum(value)){
         span.innerHTML = "Only a-z, A-Z and 0-9 are allowed";
-        span.style.display = "inline";
+        span.style.opacity = "1";
         e.target.className = "incorrect";
     } else if (value.length < 8 || value.length > 254){
         span.innerHTML = "Password lenght must be beetween 8 and 254";
-        span.style.display = "inline";
+        span.style.opacity = "1";
         e.target.className = "incorrect";
     } else if (checkPwdStrengh(value)) {
         span.innerHTML = "Password must have at least one upper case, one lower case and a number";
-        span.style.display = "inline";
+        span.style.opacity = "1";
         e.target.className = "incorrect";
     } else {
-        span.style.display = "none";
+        span.style.opacity = "0";
         e.target.className = "correct";
     }
 }
@@ -137,10 +137,10 @@ check['pwd2'] = function(e){
     var valuePwd = document.getElementById('pwd').value;
     if (value !== valuePwd) {
         span.innerHTML = "Password is different";
-        span.style.display = "inline-block";
+        span.style.opacity = "1";
         e.target.className = "incorrect";
     } else {
-        span.style.display = "none";
+        span.style.opacity = "0";
         e.target.className = "correct";
     }
 }
@@ -150,14 +150,14 @@ check['mail'] = function(e){
     var span = document.getElementById(e.target.id).nextElementSibling;
     if (validateEmail(value)) {
         span.innerHTML = "Email is not valid";
-        span.style.display = "inline-block";
+        span.style.opacity = "1";
         e.target.className = "incorrect";
     } else if (mailExist(value)) {
         span.innerHTML = "Email already exists";
-        span.style.display = "inline-block";
+        span.style.opacity = "1";
         e.target.className = "incorrect";
     } else {
-        span.style.display = "none";
+        span.style.opacity = "0";
         e.target.className = "correct";
     }
 }
@@ -167,14 +167,14 @@ check['name'] = function(e){
     var span = document.getElementById(e.target.id).nextElementSibling;
     if (value.length < 3 || value.length > 244) {
         span.innerHTML = "The name must be at least 3 length and at more 244 length";
-        span.style.display = "inline-block";
+        span.style.opacity = "1";
         e.target.className = "incorrect";
     } else if (is_str_alpha(value)) {
         span.innerHTML = "Only a-z and A-Z are allowed";
-        span.style.display = "inline-block";
+        span.style.opacity = "1";
         e.target.className = "incorrect";
     } else {
-        span.style.display = "none";
+        span.style.opacity = "0";
         e.target.className = "correct";
     }
 }
@@ -184,14 +184,14 @@ check['fname'] = function(e){
     var span = document.getElementById(e.target.id).nextElementSibling;
     if (value.length < 3 || value.length > 244) {
         span.innerHTML = "The first name must be at least 3 length and at more 244 length";
-        span.style.display = "inline-block";
+        span.style.opacity = "1";
         e.target.className = "incorrect";
     } else if (is_str_alpha(value)) {
         span.innerHTML = "Only a-z and A-Z are allowed";
-        span.style.display = "inline-block";
+        span.style.opacity = "1";
         e.target.className = "incorrect";
     } else {
-        span.style.display = "none";
+        span.style.opacity = "0";
         e.target.className = "correct";
     }
 }
