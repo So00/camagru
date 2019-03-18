@@ -1,6 +1,5 @@
 <?php
 
-require_once __DIR__."/all_model.php";
 require_once __DIR__."/connect.php";
 
 $bdd = data();

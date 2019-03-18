@@ -57,39 +57,70 @@ function checkPwdStrengh(value) {
     return (err);
 }
 
+function test_user(value)
+{
+    return new Promise(function (resolve, reject){
+        var xhr = null;
+        if (window.XMLHttpRequest) { 
+            xhr = new XMLHttpRequest();
+        } else if (window.ActiveXObject) {
+            xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhr.open("GET", "http://localhost/model/userExist.php?user="+value);
+        xhr.onload = function() {
+            if (this.status >= 200 && this.status < 300)
+                resolve(xhr.responseText);
+        };
+        xhr.send();
+    });
+}
+
 function userExist(value) {
-    var xhr = null;
-    if (window.XMLHttpRequest) { 
-        xhr = new XMLHttpRequest();
-    } else if (window.ActiveXObject) {
-        xhr = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xhr.open("GET", "http://localhost/model/userExist.php?user="+value, false);
-    xhr.send(null);
- 
-    if (xhr.responseText === "KO")
-        return (1);
-    return (0);
+    return (test_user(value).then(
+        function(response)
+        {
+            if (response == "KO")
+                return (1);
+            else
+                return (0);
+        }
+    ));
+}
+
+function test_mail(value)
+{
+    return new Promise(function (resolve, reject){
+        var xhr = null;
+        if (window.XMLHttpRequest) { 
+            xhr = new XMLHttpRequest();
+        } else if (window.ActiveXObject) {
+            xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhr.open("GET", "http://localhost/model/mailExist.php?mail="+value);
+        xhr.onload = function() {
+            if (this.status >= 200 && this.status < 300)
+                resolve(xhr.responseText);
+        };
+        xhr.send();
+    });
 }
 
 function mailExist(value) {
-    var xhr = null;
-    if (window.XMLHttpRequest) { 
-        xhr = new XMLHttpRequest();
-    } else if (window.ActiveXObject) {
-        xhr = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xhr.open("GET", "http://localhost/model/mailExist.php?mail="+value, false);
-    xhr.send(null);
- 
-    if (xhr.responseText === "KO")
-        return (1);
-    return (0);
+
+    return (test_mail(value).then(
+        function(response)
+        {
+            if (response == "KO")
+                return (1);
+            else
+                return (0);
+        }
+    ));
 }
 
 var check = {};
 
-check['login'] = function(e){
+check['login'] = async function(e){
     var value = e.target.value
     var span = document.getElementById(e.target.id).nextElementSibling
     if (is_str_alphanum(value)){
@@ -100,7 +131,7 @@ check['login'] = function(e){
         span.innerHTML = "Login lenght must be beetween 3 and 30"
         span.style.opacity = "1"
         e.target.className = "incorrect"
-    } else if (userExist(value)){
+    } else if (await userExist(value)){
         span.innerHTML = "User already exist"
         span.style.opacity = "1"
         e.target.className = "incorrect"
@@ -145,14 +176,14 @@ check['pwd2'] = function(e){
     }
 }
 
-check['mail'] = function(e){
+check['mail'] = async function(e){
     var value = e.target.value;
     var span = document.getElementById(e.target.id).nextElementSibling;
     if (validateEmail(value)) {
         span.innerHTML = "Email is not valid";
         span.style.opacity = "1";
         e.target.className = "incorrect";
-    } else if (mailExist(value)) {
+    } else if (await mailExist(value)) {
         span.innerHTML = "Email already exists";
         span.style.opacity = "1";
         e.target.className = "incorrect";

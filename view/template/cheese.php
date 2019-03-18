@@ -7,7 +7,7 @@
 require "head.php";
 require "menu.php";
 
-if ($_SESSION['login']) { ?>
+if (!empty($_SESSION['login'])) { ?>
     <div id="main">
         <div id="takePicMain">
             <div id="vidContainer">
