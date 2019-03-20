@@ -34,7 +34,7 @@ CREATE TABLE `users` (
   `ID` int(6) UNSIGNED NOT NULL,
   `login` varchar(25) NOT NULL,
   `pwd` varchar(255) NOT NULL,
-  `validation` varchar(41) NOT NULL,
+  `validation` varchar(41) DEFAULT NULL,
   `valid` int(1) DEFAULT NULL,
   `mail` varchar(60) NOT NULL,
   `name` varchar(50) NOT NULL,

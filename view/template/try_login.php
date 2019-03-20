@@ -7,6 +7,7 @@ if (empty($_SESSION['login'])) {
             <div><span>Your login : </span><input type="text" name="login"/></div>
             <div><span> password : </span><input type="password" name="pwd"/></div>
             <div><input type="submit" value="Send"></div>
+            <a href="/view/template/reset_pwd.php">Reset your password</a>
         </form>
 <?php } else { ?>
         <div class="answer">You're already logged</div>

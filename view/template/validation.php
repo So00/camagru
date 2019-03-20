@@ -12,7 +12,7 @@ if (isset($_GET['val'])) {
     $answer->execute();
     if (($data = $answer->fetch())) {
         if (!$data['valid']) {
-            $bdd->prepare("UPDATE users SET valid=\"1\" WHERE id=:id")->execute(array('id' => $data['ID']));
+            $bdd->prepare("UPDATE users SET valid=\"1\", validation=null WHERE id=:id")->execute(array('id' => $data['ID']));
             echo "<p>Your account is validated. You can now login</p>";
             system("mkdir ./pictures/".$data['login']);
         } else {
