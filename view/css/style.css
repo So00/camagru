@@ -1,0 +1,371 @@
+/*
+** Var
+*/
+/*
+** General
+*/
+.container {
+    text-align: center;
+  }
+  .container .menu {
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    width: 90%;
+    margin: 0 0 2%;
+    background: #8e4e8e;
+    border-radius: 10px;
+  }
+  .container .menu a {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    width: 12%;
+    padding: 10px;
+    margin: 1px 0;
+  }
+  .container .menu a:hover {
+    transition: 0.2s;
+    background: white;
+    color: #8e4e8e;
+  }
+  .container .menu a.active {
+    background: white;
+    color: #8e4e8e;
+  }
+  /*
+  ** Form register
+  */
+  form > div {
+    position: relative;
+  }
+  form > div label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  form > div .help-block {
+    position: absolute;
+    transition: 0.5s;
+    padding: 2px 4px;
+    border-radius: 4px;
+    border: 1px solid #8e4e8e;
+    color: #8e4e8e;
+    background-color: white;
+  }
+  form > div input {
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    width: 15%;
+    padding: 2px;
+    margin-bottom: 15px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #8e4e8e;
+    color: #8e4e8e;
+  }
+  form > div input:focus {
+    border-color: black;
+    outline: none;
+  }
+  form > div input[type="submit"] {
+    color: white;
+    background: #8e4e8e;
+    border-bottom: none;
+    border: 1px solid #8e4e8e;
+    padding: 5px;
+    font-size: 150%;
+  }
+  form > div input[type="submit"]:hover {
+    color: #8e4e8e;
+    background: white;
+  }
+  form > div .correct {
+    border-color: #34FF3F;
+    color: #34FF3F;
+  }
+  form > div .correct:focus {
+    border-color: #34FF3F;
+    color: #34FF3F;
+  }
+  form > div .incorrect {
+    border-color: #990000;
+    color: #990000;
+  }
+  form > div .incorrect:focus {
+    border-color: #990000;
+    color: #990000;
+  }
+  /*
+  ** Take Pic
+  */
+  #main {
+    display: flex;
+    width: 100%;
+  }
+  #main #takePicMain {
+    display: inline-block;
+    vertical-align: middle;
+    width: 70%;
+    text-align: center;
+  }
+  #main #takePicMain #vidContainer {
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    overflow: hidden;
+  }
+  #main #takePicMain #vidContainer .upload_img {
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+  }
+  #main #takePicMain #vidContainer #sourcevid {
+    transform: scaleX(-1);
+  }
+  #main #filter {
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    width: 30%;
+    text-align: left;
+  }
+  #main #filter .filter {
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 10px;
+    width: 30%;
+  }
+  #main #filter .filter img {
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+  }
+  #picTaken {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    background-color: cadetblue;
+  }
+  .imgContainer {
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    width: 30%;
+    margin: 25px 25px;
+    overflow: hidden;
+  }
+  .imgContainer img {
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .imgContainer img.newImg {
+    display: block;
+    width: 100%;
+  }
+  /*
+  ** my_picture
+  */
+  .pictureContainer {
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    vertical-align: unset;
+    position: relative;
+    width: 30%;
+    overflow: hidden;
+  }
+  .pictureContainer .mainPic {
+    display: block;
+    width: 100%;
+  }
+  .pictureContainer .imgFilter {
+    position: absolute;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    z-index: 2;
+  }
+  .pictureContainer a.delete-link span.delete {
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    position: absolute;
+    left: 90%;
+    top: 0;
+    bottom: 90%;
+    right: 0;
+    z-index: 3;
+  }
+  .pictureContainer a.delete-link span.delete img {
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+  }
+  .background .pictureContainer {
+    width: 80%;
+  }
+  .like {
+    position: relative;
+    text-align: right;
+    margin-right: 15%;
+  }
+  .like p {
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .like img {
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    width: 8%;
+    position: absolute;
+    right: -10%;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.2s;
+  }
+  .like img.off {
+    opacity: 1;
+  }
+  .like img.on {
+    opacity: 0;
+  }
+  .like .iLike img {
+    background: red;
+    border-radius: 50%;
+  }
+  .like .iLike img.off {
+    opacity: 0;
+  }
+  .like .iLike img.on {
+    opacity: 1;
+  }
+  @width Cont = 4rem;
+  @height Cont = 2rem;
+  @width Ball = 1.5rem;
+  @heigth Ball = 1.5rem;
+  .background {
+    width: 40%;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 50px 0;
+    position: relative;
+    background: #FF8FDE;
+    transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+  }
+  .background--on {
+    background: #8e4e8e;
+    transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+  }
+  .toggle-body {
+    width: 7rem;
+    height: 4rem;
+    position: absolute;
+    top: calc(89% - 4rem / 2);
+    left: calc(50% - 7rem / 2);
+    background: white;
+    border-radius: 2rem;
+    animation: angle-reverse 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+  }
+  .toggle-body--on {
+    animation: angle 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+    animation-direction: alternate;
+  }
+  .toggle-btn {
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: calc(50% - 2rem / 2);
+    left: calc(27% - 2rem / 2);
+    background: white;
+    border-radius: 2rem;
+    background: #FF8FDE;
+    cursor: pointer;
+    transform: translateX(0);
+    transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+  }
+  .toggle-btn--on {
+    transition: 1.5s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+    transform: translateX(150%);
+    background: #8e4e8e;
+  }
+  @keyframes angle {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(45deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  @keyframes angle-reverse {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(-45deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  /*
+  ** Message
+  */
+  .add_message {
+    text-align: center;
+    margin: 2% 0;
+  }
+  .add_message .text_area {
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 15px;
+    width: 60%;
+    min-height: 60px;
+  }
+  .message_container {
+    text-align: center;
+  }
+  .message_container .message {
+    border: 1px solid #8e4e8e;
+    margin-bottom: 5px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    width: 70%;
+  }
+  .message_container .message:hover {
+    background: #D3D3D3;
+  }
+  .message_container .message .info {
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    width: 30%;
+  }
+  .message_container .message .info h2 {
+    color: #8e4e8e;
+  }
+  .message_container .message .comment {
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    width: 69%;
+    text-align: left;
+  }

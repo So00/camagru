@@ -122,6 +122,7 @@ document.getElementById('upload_pic').addEventListener('submit', function (e) {
      * Get the image to the container
      */
     var file = document.getElementById('picData').files[0];
+    var img = document.createElement('img');
     saveFile = file;
     var reader = new FileReader();
     reader.addEventListener("load", function () {
@@ -130,6 +131,7 @@ document.getElementById('upload_pic').addEventListener('submit', function (e) {
         newImg.className = "upload_img";
         document.getElementById('vidContainer').appendChild(newImg);
         var sourcevid = document.getElementById('sourcevid');
+        document.getElementById('vidContainer').style.height = "auto";
         sourcevid.parentNode.removeChild(sourcevid);
     });
     reader.readAsDataURL(file);

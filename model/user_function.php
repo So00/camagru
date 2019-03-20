@@ -33,6 +33,18 @@ function get_user_login($id, $bdd)
     return (null);
 }
 
+function get_us_all($id)
+{
+    $bdd= data();
+    $request = $bdd->prepare("SELECT * FROM users WHERE ID=:id");
+    $request->bindValue("id", $id, PDO::PARAM_INT);
+    $request->execute();
+    $data = $request->fetch();
+    if ($data != null)
+        return ($data);
+    return (null);
+}
+
 function update_field($id, $field, $value)
 {
     $bdd = data();
@@ -179,9 +191,8 @@ function Create_user($user)
     $headers = "From: \"Camagru\" <welcome@camagru.com>\r\n";
     mail(
         $user['mail'], "Welcome to camagru family", "Hello ".$user['login']."\n\nThank you for register to Camagru.\n
-    To validate your account, please click on <a style=\"text-decoration: none; color: red;\" href=\"http://localhost/view/template/validation.php?val=".$validation."\">this link</a>\nSee you soon :)",
+    To validate your account, please click on <a style=\"text-decoration: none; color: red;\" href=\"http://{$_SERVER["HTTP_HOST"]}/view/template/validation.php?val=".$validation."\">this link</a>\nSee you soon :)",
         $headers
     );
-
 }
 ?>

@@ -66,7 +66,7 @@ function test_user(value)
         } else if (window.ActiveXObject) {
             xhr = new ActiveXObject("Microsoft.XMLHTTP");
         }
-        xhr.open("GET", "http://localhost/model/userExist.php?user="+value);
+        xhr.open("GET", "/model/userExist.php?user="+value);
         xhr.onload = function() {
             if (this.status >= 200 && this.status < 300)
                 resolve(xhr.responseText);
@@ -96,7 +96,7 @@ function test_mail(value)
         } else if (window.ActiveXObject) {
             xhr = new ActiveXObject("Microsoft.XMLHTTP");
         }
-        xhr.open("GET", "http://localhost/model/mailExist.php?mail="+value);
+        xhr.open("GET", "/model/mailExist.php?mail="+value);
         xhr.onload = function() {
             if (this.status >= 200 && this.status < 300)
                 resolve(xhr.responseText);

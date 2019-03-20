@@ -15,14 +15,14 @@
 <!-- Password input-->
 <div>
   <label for="pwd">Password</label>
-    <input id="pwd" name="pwd" type="password" class="">
+    <input id="pwd" name="pwd" type="password" class="" minlength="8" required>
     <span class="help-block">Only a-z, A-Z, 0-9. Must have at least one lowercase, one uppercase, a number and 8 length</span>
 </div>
 
 <!-- Password input-->
 <div>
   <label for="pwd2">Same password again</label>
-    <input id="pwd2" name="pwd2" type="password" class="">
+    <input id="pwd2" name="pwd2" type="password" class="" minlength="8" required>
     <span class="help-block">Password different</span>
 </div>
 

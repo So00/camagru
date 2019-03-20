@@ -20,22 +20,23 @@ function init() {
         }
     }
 
-    toggleBtn.addEventListener('click', () => {
-        var xhr = null;
-        var formdata = new FormData();
+    if (toggleBtn)
+        toggleBtn.addEventListener('click', () => {
+            var xhr = null;
+            var formdata = new FormData();
 
-        formdata.append("img_id", document.body.querySelector(".mainPic").id);
-        if (window.XMLHttpRequest) {
-            xhr = new XMLHttpRequest();
-        }
-        else if (window.ActiveXObject) {
-            xhr = new ActiveXObject("Microsoft.XMLHTTP");
-        }
+            formdata.append("img_id", document.body.querySelector(".mainPic").id);
+            if (window.XMLHttpRequest) {
+                xhr = new XMLHttpRequest();
+            }
+            else if (window.ActiveXObject) {
+                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+            }
 
-        xhr.onreadystatechange = function () { change_post(xhr); };
-        xhr.open("POST", "../../controler/post_picture_ajax.php", true);
-        xhr.send(formdata);
-    });
+            xhr.onreadystatechange = function () { change_post(xhr); };
+            xhr.open("POST", "../../controler/post_picture_ajax.php", true);
+            xhr.send(formdata);
+        });
 }
 
 window.onload = init();
